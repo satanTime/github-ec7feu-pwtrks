@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
-import { MockBuilder, MockRender } from 'ng-mocks';
+// import { MockBuilder, MockRender } from 'ng-mocks';
 import { cold } from 'jasmine-marbles';
 import { TestScheduler } from 'rxjs/testing';
+import { TestBed } from '@angular/core/testing';
 
 @Injectable()
 export class MyComponentStore extends ComponentStore<{ value: string }> {
@@ -16,10 +17,14 @@ export class MyComponentStore extends ComponentStore<{ value: string }> {
 describe('MyComponentStore', () => {
   let componentStore: MyComponentStore;
 
-  beforeEach(() => MockBuilder(MyComponentStore));
+  // beforeEach(() => MockBuilder(MyComponentStore));
+  beforeEach(() => TestBed.configureTestingModule({
+    providers: [MyComponentStore],
+  }).compileComponents());
 
   beforeEach(() => {
-    componentStore = MockRender(MyComponentStore).point.componentInstance;
+    // componentStore = MockRender(MyComponentStore).point.componentInstance;
+    componentStore = TestBed.inject(MyComponentStore);
   });
 
   // This test no longer works with ng-mocks >= 13.3.0

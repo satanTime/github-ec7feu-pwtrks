@@ -9,7 +9,7 @@ import 'zone.js/dist/zone-testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import { NgModuleRef } from '@angular/core';
 import { getTestBed } from '@angular/core/testing';
-import { MockInstance, ngMocks } from 'ng-mocks';
+// import { MockInstance, ngMocks } from 'ng-mocks';
 
 // TODO: remove when stackblitz has fixed it
 declare const jasmine: any;
@@ -20,16 +20,16 @@ declare global {
     jasmineRef?: any; // jasmine.Env;
   }
 }
-
-// ng-mocks customizations
-ngMocks.autoSpy('jasmine');
-jasmine.getEnv().allowRespy(true);
-jasmine.getEnv().addReporter({
-  specDone: MockInstance.restore,
-  specStarted: MockInstance.remember,
-  suiteDone: MockInstance.restore,
-  suiteStarted: MockInstance.remember,
-});
+//
+// // ng-mocks customizations
+// ngMocks.autoSpy('jasmine');
+// jasmine.getEnv().allowRespy(true);
+// jasmine.getEnv().addReporter({
+//   specDone: MockInstance.restore,
+//   specStarted: MockInstance.remember,
+//   suiteDone: MockInstance.restore,
+//   suiteStarted: MockInstance.remember,
+// });
 
 import './e2e.ts';
 import './test.spec.ts';
