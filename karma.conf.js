@@ -10,9 +10,7 @@ module.exports = function (config) {
     plugins: [
       require('@angular-devkit/build-angular/plugins/karma'),
       require('karma-chrome-launcher'),
-      require('karma-ie-launcher'),
       require('karma-jasmine'),
-      require('karma-junit-reporter'),
     ],
     client: {
       clearContext: false, // leave Jasmine Spec Runner output visible in browser
@@ -24,10 +22,6 @@ module.exports = function (config) {
       ChromeCi: {
         base: 'ChromeHeadless',
         flags: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
-      },
-      IECi: {
-        base: 'IE',
-        flags: ['-extoff'],
       },
     },
     junitReporter: {
